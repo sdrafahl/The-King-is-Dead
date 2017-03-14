@@ -1,0 +1,1 @@
+rm King_Is_Dead.exe
