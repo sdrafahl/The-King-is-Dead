@@ -6,7 +6,7 @@ namespace King_Is_Dead
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
