@@ -1,5 +1,5 @@
 All:
-	dmcs -pkg:dotnet King_Is_Dead.cs Screens.cs Game.cs Player.cs Follower.cs
+	dmcs -pkg:dotnet ActionCard.cs AmbassadorCard.cs Game.cs Follower.cs Garrison.cs Inforce.cs Map.cs Player.cs Region.cs RegionCard.cs Settlements.cs TheCrown.cs
 
 
 

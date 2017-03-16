@@ -25,7 +25,8 @@ namespace King_Is_Dead{
                 Player p = players.ElementAt(x);
                 setupLoyalist(p);
                 setupCards(p);
-                
+
+
             }
         }
 
@@ -109,6 +110,7 @@ namespace King_Is_Dead{
             return null;
         }
     
+        
     
     }
 }

@@ -1,8 +1,127 @@
+using System.Collections;
 namespace King_Is_Dead{
     
-    RegionCard[] que = new RegionCard[8];
+     
 
     class Map{
+        RegionCard[] que;
+        Region Caledonia;
+        Region Din_Eidyn;
+        Region Eboracum;
+        Region Deva;
+        Region Ratae;
+        Region Caerleon;
+        Region Londinium;
+        Region AquaeSulis;
+
+
+        public Map(){
+            setupRegions();
+            setupPowerStruggle();
+        }
+
+        private void setupRegions(){
+            Caledonia = new Region("Caledonia");
+            Din_Eidyn = new Region("Din Eidyn");
+            Eboracum = new Region("Eboracum");
+            Deva = new Region("Deva");
+            Ratae = new Region("Ratae");
+            Caerleon = new Region("Caerleon");
+            Londinium = new Region("Londindium");
+            AquaeSulis = new Region("Aquae Sulis");
+
+            Caledonia.addNeighbor(Din_Eidyn);
+            Din_Eidyn.addNeighbor(Eboracum);
+            Din_Eidyn.addNeighbor(Deva);
+            Eboracum.addNeighbor(Deva);
+            Eboracum.addNeighbor(Ratae);
+            Eboracum.addNeighbor(Londindium);
+            Eboracum.addNeighbor(AquaeSulis);
+            Deva.addNeighbor(Ratae);
+            Deva.addNeighbor(Caerleon);
+            Deva.addNeighbor(AquaeSulis);
+            Caerleon.addNeighbor(AquaeSulis);
+            AquaeSulis.addNeighbor(Londindium);
+
+            Caledonia.addLoyalist( new Follower(2));
+            Caledonia.addLoyalist( new Follower(2));
+            Caerleon.addLoyalist(new Follower(3));
+            Caerleon.addLoyalist(new Follower(3));
+            Londindium.addLoyalist(new Follower(1));
+            Londindium.addLoyalist(new Follower(1));
+            assignRanLoyalist(Caledonia);
+            
+            assignRanLoyalist(Caledonia);
+            assignRanLoyalist(Din_Eidyn);
+            assignRanLoyalist(Eboracum);
+            assignRanLoyalist(Deva);
+            assignRanLoyalist(Ratae);
+            assignRanLoyalist(Caerleon);
+            assignRanLoyalist(Londinium);
+            assignRanLoyalist(AquaeSulis);
+        }
+
+        private void setupPowerStruggle(){
+            List<Region> list = new List<Region>();
+            Random ran = new Random();
+            while(list.Count<8){
+               int select = ran.Next(0,8);
+               Region tempReg = getByInd(select);
+               if(!list.Contains(tempReg)){
+                   list.Add(tempReg)
+               }
+            }
+            que = list.ToArray();
+            
+            
+        }
+
+        private Region getByInd(int index){
+            switch(index){
+                case 0:
+                return Caledonia;
+                break;
+                
+                case 1: 
+                return Din_Eidyn;
+                break;
+
+                case 2:
+                return Eboracum;
+                break;
+
+                case 3:
+                return Deva;
+                break;
+
+                case 4:
+                return Ratae;
+                break;
+
+                case 5:
+                return Caerleon;
+                break;
+
+                case 6:
+                return Londindium;
+                break;
+
+                case 7:
+                return AquaeSulis;
+                break;
+            }
+            return null;
+        }
+
+        private void assignRanLoyalist(Region r){
+            Random ran = new Random();
+            while(r.getFollowerCount()>4){
+                r.addLoyalist(new Follower(ran.Next(1,5)));
+            }
+
+        }
+
+       
 
     }
 }
