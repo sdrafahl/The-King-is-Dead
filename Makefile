@@ -1,5 +1,5 @@
 All:
-	dmcs King_Is_Dead.cs
+	dmcs -pkg:dotnet King_Is_Dead.cs Screens.cs Game.cs Player.cs Follower.cs
 
 
 

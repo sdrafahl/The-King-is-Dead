@@ -4,9 +4,16 @@ namespace King_Is_Dead
 {
     class Program
     {
-        static void Main(string[] args)
+        
+       
+        static int Main(string[] args)
         {
+            Game game = new Game();
+            HomeScreen s = new HomeScreen(game);
             
+            s.display();
+            return 0;
         }
+
     }
 }
