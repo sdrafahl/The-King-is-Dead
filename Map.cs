@@ -67,8 +67,11 @@ namespace King_Is_Dead{
             Caerleon.addLoyalist(new Follower(3));
             Londindium.addLoyalist(new Follower(1));
             Londindium.addLoyalist(new Follower(1));
-            assignRanLoyalist(Caledonia);
             
+            Londindium.faction=1;
+            Caerleon.faction=3;
+            Caledonia.faction=2;
+
             assignRanLoyalist(Caledonia);
             assignRanLoyalist(Din_Eidyn);
             assignRanLoyalist(Eboracum);
@@ -138,6 +141,30 @@ namespace King_Is_Dead{
             }
 
         }
+
+         public string getMapDesc(){
+            string msg = "";
+            List<Region> done = new List<Region>();
+            Queue q = new Queue();
+            q.Enqueue(Caledonia);
+            while(q.Count>0){
+                Region temp = q.Dequeue();
+                msg+=temp.getDesc();
+                done.Add(temp);
+                foreach(Region r in neighbors){
+                    if(!done.Contains(r)){
+                        q.Enqueue(r);
+                    }
+                }
+
+            }
+            return msg;
+         }
+
+         
+
+
+        
 
        
 

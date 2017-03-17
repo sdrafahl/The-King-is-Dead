@@ -33,7 +33,13 @@ namespace King_Is_Dead{
             }
 
         }
+
+        int turn {get; set;}
         
+        public string getCurrentPlayerDesc(){
+           return players[turn].getCurrentPlayerDesc();
+        }
+
         private void setupGame(){
             
             for(int x=0;x<players.Count;x++){
@@ -89,7 +95,7 @@ namespace King_Is_Dead{
             switch(ran.Next(0,5)){
                 
                 case 0:
-                   return new TheCrown(map.);
+                   return new TheCrown(map);
                 break;
 
                 case 1: 
@@ -125,6 +131,9 @@ namespace King_Is_Dead{
             return null;
         }
     
+        public string getMapDesc(){
+            return map.getMapDesc();
+        }
         
         
     

@@ -108,6 +108,9 @@ namespace King_Is_Dead{
 
     }
 
+    /**
+     *   Class for UI for playing the game locally 
+     */
      public class GameScreen : Form {
 
         Game game;
@@ -118,11 +121,35 @@ namespace King_Is_Dead{
 
         public GameScreen (Game g){
             this.game=g;
+            Size = new Size(1000,1000);
+
+            /*Temporary untill graphics are complete */
+            TextBox txt = new TextBox();
+            txt.Location = new Point(500,0);
+            txt.Size = new Size(500,500);
+            txt.Text = game.getMapDesc();
+            Controls.Add(txt);
+
+            /*Whose Turn is displayed */
+            TextBox whos = new TextBox();
+            whos.Location = new Point(0,0);
+            whos.Size = new Size(200,200);
+            whos.Text = "It is player: " + game.turn " Turn"; 
+            Controls.Add(whos);
+
+            /*Player Followers */
+            TextBox inven = new TextBox();
+            inven.Location = new Point(0,250);
+            inven.Size(50,50);
+            inven.Text = "Player " + game.turn + " has " + game.getCurrentPlayerDesc();
+            Controls.Add(inven);
+
+            /*Controls*/
             
+
+
         }
         
-        
-
         public void display(){
             Application.Run (this);
         }
