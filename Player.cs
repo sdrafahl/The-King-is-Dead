@@ -7,7 +7,10 @@ namespace King_Is_Dead{
     List<Follower> loyalist;   
     List<ActionCard> actionCards;
 
+    int done;
+
        public Player(){
+           this.done = 0;
            loyalist = new List<Follower>();
            actionCards = new List<ActionCard>(); 
        }
@@ -20,5 +23,7 @@ namespace King_Is_Dead{
            actionCards.Add(card);
        }
 
+       int done {get; set;}
+       
     }
 }

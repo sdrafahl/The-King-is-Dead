@@ -28,8 +28,18 @@ namespace King_Is_Dead{
             }
         }
 
-        public addLoyalist(Follower g){
-            loyalist.Add(g)
+        public void addLoyalist(Follower g){
+            loyalist.Add(g);
+        }
+
+        public Follower removeLoyalist(int color){
+            for(int x=0;x<loyalist.Count;x++){
+                Follower temp = loyalist.Remove(x);
+                if(temp.faction == color){
+                    return temp;
+                }
+                loyalist.Add(temp);
+            }
         }
 
         public int getFollowerCount(){

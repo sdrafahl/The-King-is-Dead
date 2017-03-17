@@ -7,19 +7,34 @@ namespace King_Is_Dead{
     
 
     public class Game {
-
+        
+        int turn;
+        Map map;
         List<Player> players;
 
-        public Game(){
+        public Game(int numplayers){
+            players = new List<Player>();
+            for(int x=0;x<numplayers;x++){
+                players.Add(new Player());
+            }
+            setupGame();
+            this.map = new Map();
+            this.turn = 0;
+        }
+        
+        public void playTurn(int skip,ActionCard card){
+            if(skip){
+                this.turn++;
+                if(this.turn==players.Count){
+                    this.turn=0;
+                }
+            }else{
+                card.playCard();
+            }
 
         }
-
-
-        public void setPlayers(List<Player> players){
-            this.players=players;
-        }
-
-        public void setupGame(){
+        
+        private void setupGame(){
             
             for(int x=0;x<players.Count;x++){
                 Player p = players.ElementAt(x);
@@ -74,7 +89,7 @@ namespace King_Is_Dead{
             switch(ran.Next(0,5)){
                 
                 case 0:
-                   return new TheCrown();
+                   return new TheCrown(map.);
                 break;
 
                 case 1: 
@@ -110,6 +125,7 @@ namespace King_Is_Dead{
             return null;
         }
     
+        
         
     
     }

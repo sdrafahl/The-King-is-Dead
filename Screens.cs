@@ -15,8 +15,7 @@ namespace King_Is_Dead{
             
         }
 
-        public HomeLocal (Game g){
-            this.game=g;
+        public HomeLocal (){
             Label b = new Label ();
             b.Text = "Select Number of Players";
             b.Location = new Point(100,0);
@@ -48,9 +47,7 @@ namespace King_Is_Dead{
 
         private void twoplayer (object sender, EventArgs e){
             List<Player> players = new List<Player>();
-            players.Add(new Player());
-            players.Add(new Player());
-            game.setPlayers(players);
+            this.game = new Game(2);
             Close();
             new GameScreen(game).display();
             
@@ -58,21 +55,15 @@ namespace King_Is_Dead{
 
         private void threeplayer(object sender, EventArgs e){
             List<Player> players = new List<Player>();
-            players.Add(new Player());
-            players.Add(new Player());
-            players.Add(new Player());
-            game.setPlayers(players);
+            this.game = new Game(3);
+            
             Close();
             new GameScreen(game).display();
         }
 
         private void fourplayer(object sender, EventArgs e){
             List<Player> players = new List<Player>();
-            players.Add(new Player());
-            players.Add(new Player());
-            players.Add(new Player());
-            players.Add(new Player());
-            game.setPlayers(players);
+            this.game = new Game(4);
             Close();
             new GameScreen(game).display();
         }

@@ -8,8 +8,8 @@ namespace King_Is_Dead
        
         static int Main(string[] args)
         {
-            Game game = new Game();
-            HomeScreen s = new HomeScreen(game);
+            
+            HomeScreen s = new HomeScreen();
             
             s.display();
             return 0;
