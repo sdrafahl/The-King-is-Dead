@@ -6,13 +6,13 @@ namespace King_Is_Dead{
 
         /*1 is British,2 is scots,3 is welsh */
         int faction;
-        int used;
+        
         Region from;
         Region to;
 
         public Inforce(int faction){
             this.faction=faction;
-            this.used=0;
+            
         }
 
         public override void setTarget(Region from,Region to){
@@ -25,7 +25,7 @@ namespace King_Is_Dead{
                 if(from.isNeighbor(to)){
                     if(from.faction == faction){
                         if(to.faction==0){
-                            this.used=1;
+                            used=1;
                             to.addLoyalist(new Follower(faction));
                         }
                     }
@@ -34,4 +34,21 @@ namespace King_Is_Dead{
             
 
     }
+
+    public override int getinttype(){
+            switch(faction){
+                case 1:
+                return 4;
+                break;
+
+                case 2:
+                return 5;
+                break;
+
+                case 3:
+                return 6;
+                break;
+            }
+            return 10;
+        }
 }

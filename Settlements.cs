@@ -3,7 +3,7 @@ namespace King_Is_Dead{
     public class Settlements:ActionCard {
 
         
-        int used;
+        
 
         Region to1;
         Region to2;
@@ -13,7 +13,7 @@ namespace King_Is_Dead{
         Follower t3;
 
         public AmbassadorCard():base() {
-            this.used = 0;
+            
         }
 
         public override void setTarget(Region to1,Region to2,Region to3,Follower t1, Follower t2, Follower t3){
@@ -33,6 +33,10 @@ namespace King_Is_Dead{
                 used=1;
             }
             
+        }
+
+        public override int getinttype(){
+            return 3;
         }
 
     }

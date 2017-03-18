@@ -11,6 +11,7 @@ namespace King_Is_Dead{
         int turn;
         Map map;
         List<Player> players;
+        
 
         public Game(int numplayers){
             players = new List<Player>();
@@ -21,15 +22,25 @@ namespace King_Is_Dead{
             this.map = new Map();
             this.turn = 0;
         }
-        
-        public void playTurn(int skip,ActionCard card){
+
+        Map map {get; set;}
+
+        public Player getPlayer(){
+            return players[turn];
+        }
+
+        public Player getCurrentPlayer(){
+            return players[turn];
+        }
+
+        public void playTurn(int skip){
             if(skip){
                 this.turn++;
                 if(this.turn==players.Count){
                     this.turn=0;
                 }
             }else{
-                card.playCard();
+                selected.playCard();
             }
 
         }

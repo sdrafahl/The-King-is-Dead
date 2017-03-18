@@ -2,7 +2,7 @@ namespace King_Is_Dead{
     
     public class Garrison:ActionCard {
 
-         int used;
+         
          Region from;
          Region to;
          Follower fr;
@@ -10,7 +10,7 @@ namespace King_Is_Dead{
          Follower fr2;
 
          public Gerrison():base() {
-            this.used = 0;
+            
         }
 
         public override void setTarget(Region from,Region to,Follower fr,Follower t,Follower fr2){
@@ -23,7 +23,7 @@ namespace King_Is_Dead{
 
         public override void playCard(){
             if(!used){
-                this.used = 1;
+                used = 1;
                 Follower temp = from.removeLoyalist(fr.faction);
                 to.addLoyalist(temp);
                 Follower temp1 = to.removeLoyalist(t.faction);
@@ -33,6 +33,10 @@ namespace King_Is_Dead{
             }
             
 
+        }
+
+        public override int getinttype(){
+            return 1;
         }
     }
 }
