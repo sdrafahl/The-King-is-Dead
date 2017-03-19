@@ -15,7 +15,22 @@ namespace King_Is_Dead{
            this.done = 0;
            loyalist = new List<Follower>();
            actionCards = new List<ActionCard>(); 
+           crown_index1 =-1;
+           crown_index2=-1;
        }
+
+       public void resetCached(){
+           crown_index1=-1;
+           crown_index2=-1;
+       }
+
+       /*The Crown Information*/
+       int crown_index1;
+       int crown_index2;
+       int crown_index1 {get; set;}
+       int crown_index2 {get; set;}
+
+
 
        List<ActionCard> actionCards {get; set;}
 

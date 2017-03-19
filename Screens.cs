@@ -282,47 +282,140 @@ namespace King_Is_Dead{
                 Controls.Add(btcrown);
             }
 
+            if(game.getCurrentPlayer().selected != null){
+
+                y=250;
+                Button cancle = new Button();
+                cancle.Location = new Point(y,55);
+                cancle.Size = new Size(50,50);
+                cancle.Text = "Cancle";
+                cancle.Click += new EventHandler(cancleCard);
+                Controls.Add(cancle);
+
+                y= 250 + 55;
+                Button submit = new Button();
+                cancle.Location = new Point(y,55);
+                cancle.Size = new Size(50,50);
+                cancle.Text = "Submit";
+                cancle.Click += new EventHandler(submitAction);
+                Controls.Add(cancle);
+
+                /*Next part to work on */
+                switch(game.getCurrentPlayer().selected.getinttype()){
+                    case 0:
+                    selectCrownOptions();
+                    break;
+
+                    case 1:
+
+                }
+
+            }
+        }
 
 
+        private void selectGarrisonOptions(){
+            
 
         }
-        private void selectWelsh(){
+
+        private void selectCrownOptions(){
+            Button b;
+            for(int x=0;x<8;x++){
+                y+=55;
+                b = new Button();
+                b.Location = new Point(y,55);
+                b.Size = new Size(50,50);
+                
+                Player p =  getPlayer();
+                b.Text = r.name;
+                b.Click += delegate(object sender, EventArgs e){
+                    
+                    if(p.crown_index2 == -1){
+                        p.crown_index2 = x;
+                        return;
+                    }
+
+                    if(p.crown_index1 == -1){
+                        p.crown_index1 = x;
+                        ActionCard r = game.getCurrentPlayer().selected;
+                        TheCrown c = (TheCrown)r;
+                        c.setTarget(p.crown_index1, c.crown_index2);
+                        return;
+                    }
+
+                };
+                
+                Controls.Add(b);
+            }
+            
+        }
+
+        
+
+        private void referesh(){
+            Close();
+            new GameScreen(game).display();
+        }
+
+        private void submitAction(object sender, EventArgs e){
+            ActionCard r = game.getCurrentPlayer().selected;
+            r.playCard();
+            game.getCurrentPlayer().resetCached();
+        }
+
+        private void cancleCard(object sender, EventArgs e){
+            Player p = game.getCurrentPlayer();
+            p.selected = null;
+            p.resetCached();
+            referesh();
+        }
+
+        private void selectWelsh(object sender, EventArgs e){
             Player p = game.getCurrentPlayer();
             p.selected = we;
+            referesh();
         }
 
-        private void selectScots(){
+        private void selectScots(object sender, EventArgs e){
             Player p = game.getCurrentPlayer();
             p.selected = sco;
+            referesh();
         }
 
-        private void selectBritish(){
+        private void selectBritish(object sender, EventArgs e){
             Player p = game.getCurrentPlayer();
             p.selected = bri;
+            referesh();
         }
 
-        private void selectSettlements(){
+        private void selectSettlements(object sender, EventArgs e){
             Player p = game.getCurrentPlayer();
              p.selected = set;
+             referesh();
         }
 
-        private void selectAmbassador(){
+        private void selectAmbassador(object sender, EventArgs e){
              Player p = game.getCurrentPlayer();
              p.selected = amb;
+             referesh();
         }
 
-        private void selectGarrison(){
+        private void selectGarrison(object sender, EventArgs e){
             Player p = game.getCurrentPlayer();
              p.selected = gar;
+             referesh();
         }
 
-        private void selectCrown(){
+        private void selectCrown(object sender, EventArgs e){
            Player p = game.getCurrentPlayer();
            p.selected = cro;
+           referesh();
         }
 
-        private void skipMethod(){
+        private void skipMethod(object sender, EventArgs e){
             game.playTurn(1 , null);
+            referesh();
         }        
 
         public void display(){

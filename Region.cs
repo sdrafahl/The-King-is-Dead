@@ -35,6 +35,8 @@ namespace King_Is_Dead{
             }
         }
 
+        string name {get; set;}
+
         public void addLoyalist(Follower g){
             loyalist.Add(g);
         }

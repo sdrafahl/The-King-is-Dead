@@ -29,14 +29,17 @@ namespace King_Is_Dead{
             if(index2>7 || index1>7){
                 return;
             }
-            RegionCard temp1 = que[index1];
-            RegionCard temp2 = que[index2];
+            Region temp1 = que[index1];
+            Region temp2 = que[index2];
 
             que[index1] = temp2;
             que[index2] = temp1;
 
         }
 
+        public Region getRegioninQue(int quenum){
+            return que[quenum];
+        }
 
         private void setupRegions(){
             Caledonia = new Region("Caledonia");
