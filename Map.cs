@@ -93,7 +93,7 @@ namespace King_Is_Dead{
                int select = ran.Next(0,8);
                Region tempReg = getByInd(select);
                if(!list.Contains(tempReg)){
-                   list.Add(tempReg)
+                   list.Add(tempReg);
                }
             }
             que = list.ToArray();

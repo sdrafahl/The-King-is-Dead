@@ -6,15 +6,14 @@ namespace King_Is_Dead{
     public class Player {
     
     List<Follower> loyalist;   
-    List<ActionCard> actionCards;
-    ActionCard selected;
-
-    int done;
+    
+   
+    
 
        public Player(){
            this.done = 0;
            loyalist = new List<Follower>();
-           actionCards = new List<ActionCard>(); 
+            
            crown_index1 =-1;
            crown_index2=-1;
        }
@@ -25,8 +24,7 @@ namespace King_Is_Dead{
        }
 
        /*The Crown Information*/
-       int crown_index1;
-       int crown_index2;
+       
        int crown_index1 {get; set;}
        int crown_index2 {get; set;}
 
@@ -45,7 +43,7 @@ namespace King_Is_Dead{
        }
 
        public string getCurrentPlayerDesc(){
-             int brits =0;
+            int brits =0;
             int scots =0;
             int welsh = 0;
             foreach (Follower f in loyalist){

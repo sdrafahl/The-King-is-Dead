@@ -12,7 +12,7 @@ namespace King_Is_Dead{
         Follower t2;
         Follower t3;
 
-        public AmbassadorCard():base() {
+        public Settlements():base() {
             
         }
 

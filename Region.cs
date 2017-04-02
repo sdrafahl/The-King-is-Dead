@@ -6,16 +6,16 @@ namespace King_Is_Dead{
     
     
     
-    class Region{
+   public class Region{
 
         /*0 none,1 is British,2 is scots,3 is welsh,4 saxons */
-        int faction;
+       
         
-        string name;
+       
     
         List<Follower> loyalist;
 
-        List<Region> neighbors;
+        
 
         public Region(string name){
             this.name=name;
@@ -26,7 +26,7 @@ namespace King_Is_Dead{
         List<region> neighbors {get; set;}
         int faction {get; set;}
 
-        public addNeighbor(Region reg){
+        public void addNeighbor(Region reg){
             if(neighbors.Contains(Follower)){
                 return;
             }else{
