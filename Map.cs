@@ -3,7 +3,8 @@ namespace King_Is_Dead{
     
      
 
-    class Map{
+   public class Map {
+        
         RegionCard[] que;
         Region Caledonia;
         Region Din_Eidyn;

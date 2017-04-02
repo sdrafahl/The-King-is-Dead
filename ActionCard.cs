@@ -2,7 +2,7 @@ namespace King_Is_Dead{
     
     public abstract class ActionCard{
 
-        int used;
+       // int used;
 
         public ActionCard(){
             used=0;

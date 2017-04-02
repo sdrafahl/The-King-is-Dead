@@ -9,7 +9,7 @@ namespace King_Is_Dead{
          Follower t;
          Follower fr2;
 
-         public Gerrison():base() {
+         public Garrison():base() {
             
         }
 

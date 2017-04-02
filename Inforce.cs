@@ -38,17 +38,21 @@ namespace King_Is_Dead{
     public override int getinttype(){
             switch(faction){
                 case 1:
-                return 4;
-                break;
+                    return 4;
+                
 
                 case 2:
-                return 5;
-                break;
+                    return 5;
+                
 
                 case 3:
-                return 6;
-                break;
+                    return 6;
+
+                default:
+                    return 10;
+                
             }
-            return 10;
+            
         }
+    }
 }

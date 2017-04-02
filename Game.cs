@@ -8,8 +8,8 @@ namespace King_Is_Dead{
 
     public class Game {
         
-        int turn;
-        Map map;
+        
+        
         List<Player> players;
         
 
